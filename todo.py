@@ -9,7 +9,7 @@ def index():
      return render_template("todo.html.jinja", todo_list= todo_list)
 
 
-@app.route("/add")
+@app.route("/add", methods =['POST'])
 def add():
      new_todo = request.form['new_todo']
      return new_todo
