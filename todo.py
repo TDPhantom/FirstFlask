@@ -1,4 +1,4 @@
-from flask import Flask , render_template, request
+from flask import Flask , render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -12,4 +12,6 @@ def index():
 @app.route("/add", methods =['POST'])
 def add():
      new_todo = request.form['new_todo']
+     todo_list.append(new_todo)
+     return redirect(request.referrer)
      return new_todo
