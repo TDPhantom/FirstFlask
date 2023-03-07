@@ -33,6 +33,8 @@ def index():
 def add():
      new_todo = request.form['new_todo']
      todo_list.append(new_todo)
+     cursor = connection.cursor()
+     cursor.execute("INSERT INTO `Todos`(`description`) VALUES('"+ new_todo +"')")
      return redirect(request.referrer)
      return new_todo
 
