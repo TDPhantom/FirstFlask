@@ -21,7 +21,7 @@ def index():
  cursor = connection.cursor()
 
 
- cursor.execute("SELECT * FROM `Todos`")
+ cursor.execute("SELECT * FROM `Todos` ORDER BY `Done` ASC;")
 
  result = cursor.fetchall()
 
