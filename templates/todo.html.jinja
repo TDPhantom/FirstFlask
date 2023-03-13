@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <link rel="stylesheet" type="text/css" href="http://ronenness.github.io/RPGUI/rpgui/rpgui.min.css">
     <title> My First App</title>
-    <style>
     
-    </style>
+
+<div class="rpgui-content">
+	<p>This text will have the RPGUI style!</p>
+</div>
     </head>
 
-    <body style="background-color: rgb(10, 126, 91); color:rgba(255, 255, 255, 0.974)">
+  <style>
+	body, #container
+	{
+		background: #222;
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+	
+	.inner
+	{
+		background: #444;
+		padding-left:20px;
+		padding-right:20px;
+		min-width: 740px;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+  </style>
+
+    <body>
+<div class="rpgui-content" style="overflow-y:scroll;">
+    <div id="container">
+	  <div id="main"></div>
+      <div class="inner rpgui-container framed" style="position:relative">
 
     
     <h1>Hello World</h1>
@@ -19,6 +45,11 @@
      {% for things in todo_list%}
 
         <li style="{% if things['Done'] == 1 %}; color:red;{%endif%}"; color:black; font-size:20px; font-style:oblique;">{{things['description']}}</li>
+        <form action="/complete" method="post">
+            <input name="todo_list" value="{{things['ID']}}" hidden>
+            <input type="submit" value="Done">
+        </form>
+        {{things['Description']}}
     
      {% endfor %}
     </ul>
@@ -37,7 +68,9 @@
         display:inline-block">
     
     
+    
     </form>
+</div>
     </body>
 
 </html>

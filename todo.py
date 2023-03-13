@@ -38,3 +38,12 @@ def add():
      return redirect(request.referrer)
      return new_todo
 
+@app.route("/Done", methods=['POST'])
+def Done():
+    todo_list = request.form['new_todo']
+    cursor = connection.cursor()
+    
+    cursor.execute(f"UPDATE `Todos` SET `Done` = 1 WHERE `id` = {todo_list}")
+    
+    return redirect("/")
+
