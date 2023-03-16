@@ -43,21 +43,7 @@
 	}
   </style>
 	<div id="progress" class="rpgui-container framed-grey">
-				<h1>Progress Bars</h1>
-				<p>This example shows the RPGUI progress bar class.</p>
-				<hr />
-				
-				<div style="width: 40%; margin-left: 30%">
-				
-					<label>Health:</label>
-					<div id="hp-bar" data-value="0.4" class="rpgui-progress red"></div>
-					<label>Mana:</label>
-					<div id="mana-bar" data-value="0.8" class="rpgui-progress blue"></div>
-					<label>Stamina:</label>
-					<div id="stamina-bar" data-value="0.2" class="rpgui-progress green"></div>
-					<label>Experience:</label>
-					<div id="stamina-bar" data-value="0.5" class="rpgui-progress"></div>
-				</div>
+    
     <body>
 
 
@@ -71,11 +57,17 @@
     
      {% for things in todo_list%}
 
-        <li style="{% if things['Done'] == 1 %}; color:red;{%endif%}"; color:black; font-size:20px; font-style:oblique;">{{things['description']}}
+        <li style="{% if things['Done'] == 1 %}; color: #5A5A5A;{%endif%}"; text decoration: line-through; color:black;  font-size:20px;">{{things['description']}}
             {%if things['Done'] == 0 %}
         <form action="/Done" method="post">
-            <input name="todo_list" value="{{things['ID']}}" hidden>
-            <input type="submit" value="Done">
+   
+     <div id="buttons" class="rpgui-container framed-grey" class="rpgui-container framed-grey rpgui-center"> 
+     <i class="rpgui-icon potion-red"></i>
+        <input name="todo_list" value="{{things['ID']}}" hidden>
+        <input type="submit" class="rpgui-button golden" style="width:30%" value="Done"> 
+     </div>
+          
+           
         </form>
         {%endif%}
 
@@ -94,7 +86,7 @@
         <input type="submit" style="border-radius:12px
         padding:25px;
         ;background-color:black
-        ;color:blue; 
+        ;color:#FFD700; 
         display:inline-block">
     
     
